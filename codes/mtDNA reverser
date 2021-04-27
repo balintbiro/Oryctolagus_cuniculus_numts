@@ -12,7 +12,7 @@ def read_fasta(fp):
                 name, seq = line, []
             else:
                 seq.append(line)
-        if name: yield (name, ''.join(seqp))
+        if name: yield (name, ''.join(seq))
             
 #Opens the fasta file and prints the name + reversed sequence of this file
 with open(fasta_file) as fp:
