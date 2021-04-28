@@ -4,7 +4,7 @@ output_name = "two_ch_MT.fasta"
 
 #Function that reads the fasta file and creates two seperations for the name and sequence
 def read_fasta(fp):
-        name, seq, comp = None, [], []
+        name, seq = None, []
         for line in fp:
             line = line.rstrip()
             if line.startswith(">"):
