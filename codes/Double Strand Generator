@@ -1,9 +1,6 @@
 #Input and Output of the FASTA file
-fasta_file = r"input_file_location"
+fasta_file = r"input_file_name"
 output_name = "two_ch_MT.fasta"
-
-#Library for generating complement DNA string
-complement = {'A': 'C', 'C': 'A', 'T': 'G', 'G': 'T'}
 
 #Function that reads the fasta file and creates two seperations for the name and sequence
 def read_fasta(fp):
@@ -16,21 +13,17 @@ def read_fasta(fp):
             else:
                 seq.append(line)
         
-        #Creates the complementary DNA string
-        for dna in (seq):
-            comp.append("".join([complement[x] for x in dna]))
-        
         #Joins everything together and reverses the complementary string
-        if name: yield (name, ''.join(seq),''.join(comp)[::-1])
+        if name: yield (name, ''.join(seq))
     
 
-#Opens the fasta file and prints the name + reversed sequence of this file
+#Opens the fasta file and prints the name + a double copy of the sequence
 with open(fasta_file) as fp:
-    for name, seq, comp in read_fasta(fp):
-        print (name,'\n', seq, '\n','\n','>Reverse complementary DNA strand','\n', comp)
+    for name, seq in read_fasta(fp):
+        print (name,'\n', seq, seq)
 
 
-#Writes to a new FASTA file with the reversed sequence on a seperate row
+#Writes to a new FASTA file with the double copy of the sequence on a seperate row
 file = open(output_name, "w")
-file.writelines([''.join(name),"\n",''.join(seq),'\n','\n', '>Reverse complementary DNA strand','\n', ''.join(comp)])
+file.writelines([''.join(name),"\n",''.join(seq), ''.join(seq)])
 file.close()
