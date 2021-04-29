@@ -16,7 +16,7 @@ def read_fasta(fp):
         #Joins everything together and reverses the complementary string
         if name: yield (name, ''.join(seq))
     
-#Opens the fasta file and prints the name + a double copy of the sequence of this file
+#Opens the fasta file and creates the name + a double copy of the sequence of this file
 with open(fasta_file) as fp, open(output_name, 'w') as output:
     for name, seq in read_fasta(fp):
         output.writelines([''.join(name),"\n",''.join(seq), ''.join(seq)])
