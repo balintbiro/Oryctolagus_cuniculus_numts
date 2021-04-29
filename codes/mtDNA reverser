@@ -15,11 +15,6 @@ def read_fasta(fp):
         if name: yield (name, ''.join(seq))
             
 #Opens the fasta file and prints the name + reversed sequence of this file
-with open(fasta_file) as fp:
+with open(fasta_file) as fp, open(output_name, 'w') as output:
     for name, seq in read_fasta(fp):
-        print (name,seq[::-1])
-        
-#Writes to a new FASTA file with the reversed sequence on a seperate row
-file = open(output_name, "w")
-file.writelines([''.join(name),"\n",''.join(seq[::-1])])
-file.close()
+        output.writelines([''.join(name),"\n",''.join(seq[::-1])])
