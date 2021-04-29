@@ -1,0 +1,25 @@
+#Input and Output of the FASTA file
+fasta_file = r"insert_path_of_fasta_file"
+output_name = "insert_output_name"
+
+#Function that reads the fasta file and creates two seperations for the name and sequence
+def read_fasta(fp):
+        name, seq = None, []
+        for line in fp:
+            line = line.rstrip()
+            if line.startswith(">"):
+                if name: yield (name, ''.join(seq))
+                name, seq = line, []
+            else:
+                seq.append(line)
+        if name: yield (name, ''.join(seq))
+            
+#Opens the fasta file and prints the name + reversed sequence of this file
+with open(fasta_file) as fp:
+    for name, seq in read_fasta(fp):
+        print (name,seq[::-1])
+        
+#Writes to a new FASTA file with the reversed sequence on a seperate row
+file = open(output_name, "w")
+file.writelines([''.join(name),"\n",''.join(seq[::-1])])
+file.close()
