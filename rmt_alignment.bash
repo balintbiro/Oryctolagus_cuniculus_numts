@@ -1,11 +1,14 @@
+#authentication
 login as: birobalint
 birobalint@193.225.92.115's password:
 Last login: Fri Apr 30 14:06:40 2021 from brutus.abc.hu
 
+#navigation
 birobalint@login:~$ cd numt
-birobalint@login:~/numt$ cd sequences #navigation
+birobalint@login:~/numt$ cd sequences
 
-birobalint@login:~/numt/sequences$ ls #check the content of that folder
+#check the content of that folder
+birobalint@login:~/numt/sequences$ ls
 Oryctolagus_cuniculus.OryCun2.0.dna.chromosome.MT.fa
 Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa
 Reversed_Oryctolagus_cuniculus.OryCun2.0.dna.chromosome.MT.fa
