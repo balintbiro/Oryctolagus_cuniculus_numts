@@ -9,6 +9,7 @@ The initial folder structure is made up of three folders:
 
 The alignments were performed with LASTAL.
 The codes are mainly written in Python but some of the visualizations are done in R.
+
 Used Python packages (with version number if it is available):
 - os
 - gzip
