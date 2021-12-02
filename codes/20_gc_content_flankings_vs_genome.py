@@ -106,4 +106,4 @@ ax.set_xticklabels(['flankings', 'genome'],
 statistical_annotation([flankings_gc, flages_gc], flage_significance[1], [0,1], 0.1)
 ax.set_ylim(0, 1.1)
 plt.tight_layout()
-plt.savefig('../results/gc_contents_flanking_vs_genome.png', dpi = 400)
+plt.savefig('../results/gc_contents_flanking_vs_genome.png', dpi = 600)

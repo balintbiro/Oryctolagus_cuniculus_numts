@@ -31,5 +31,5 @@ ideogram(karyotype = karyotype_dual_comparison,
          synteny = synteny_dual_comparison)
 #set the working directory
 setwd('../results/')
-convertSVG("chromosome.svg", device = "png")#the svg filename cannot be modified, so it has to be changed after the creation,
+convertSVG("chromosome.svg", device = "png", dpi=600)#the svg filename cannot be modified, so it has to be changed after the creation,
 #otherwise it is gonna be overwritten!

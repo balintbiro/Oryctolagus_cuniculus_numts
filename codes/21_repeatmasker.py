@@ -279,4 +279,4 @@ for index, repeat_family in enumerate(repeat_families):
     draw_brace(axes, (bracket_start,bracket_end),repeat_families.index.values[index])
     bracket_start+=len(repeat_family)
 plt.tight_layout()
-plt.savefig('../results/repeatmasker_statistics.png', dpi = 400)
+plt.savefig('../results/repeatmasker_statistics.png', dpi = 600)

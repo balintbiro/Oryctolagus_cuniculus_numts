@@ -134,4 +134,4 @@ ax.set_xticklabels(['numts', 'genome'],
 statistical_annotation([numts_gc, nuge_gc], nuge_significance[1], [0,1], 0.1)
 ax.set_ylim(0.1, 1.05)
 plt.tight_layout()
-plt.savefig('../results/gc_contents_numt_vs_genome.png', dpi = 400)
+plt.savefig('../results/gc_contents_numt_vs_genome.png', dpi = 600)
