@@ -267,7 +267,7 @@ axes.legend((upstream_downstream, upstream_sample, downstream_sample),
            fontsize = 13,
            ncol = 3,
            loc = 'upper center')
-axes.set_ylabel('$\it{P value}$\n(inverted log scale)', fontsize = 20)
+axes.set_ylabel('$\it{P}$ value\n(inverted log scale)', fontsize = 20)
 axes.set_xlabel('common repetitive elements by RepeatMasker', fontsize = 20)
 plt.margins(x = 0.01)
 plt.xticks(rotation = 90)

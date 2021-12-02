@@ -90,7 +90,7 @@ def statistical_annotation(data, significance, positions, height):
     y, h, col = maximum + height + 0.03, 0.03, 'k'
     plt.plot([x1, x1, x2, x2], [y, y+h, y+h, y], lw=1.5, c = col)
     if significance < 0.05:
-        plt.text((x1+x2)*.5, y+h, '$\it{P < 0.05}$', ha='center', va='bottom', color = col, fontsize = 14)
+        plt.text((x1+x2)*.5, y+h, '$\it{P}$ < 0.05', ha='center', va='bottom', color = col, fontsize = 14)
     else:
         plt.text((x1+x2)*.5, y+h, "n.s.", ha='center', va='bottom', color = col, fontsize = 14)
         
