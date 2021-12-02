@@ -37,7 +37,7 @@ RepeatMasker was also run on server (http://genome.ucsc.edu/cgi-bin/hgTables?hgs
 - group: Variation and Repeats
 - track: RepeatMasker
 - table: rmsk
-- define regions: upload the mt FASTA
+- define regions: upload the mt BED files
 
 Brief description of the programs:
 
@@ -153,5 +153,9 @@ Brief description of the programs:
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - get the flankings of the numts
 - prepare input files for RepeatMasker server
+	- repeatmasker_input_downstream.bed
+	- repeatmasker_input_upstream.bed
+	- repeatmsker_input_genomic_samples.bed
+- the RepeatMasker output files should be named properly (downstream_repeats.tsv, upstream_repeats.tsv and genomic_repeats.tsv) and placed into the results/ folder!
 - compare the frequency of repetitive elements
 - visualize
