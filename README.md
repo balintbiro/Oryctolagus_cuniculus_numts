@@ -38,6 +38,12 @@ RepeatMasker was also run on server (http://genome.ucsc.edu/cgi-bin/hgTables?hgs
 - track: RepeatMasker
 - table: rmsk
 - define regions: upload the mt BED files
+- please note that:
+	- the input/output filenames are the followings:
+		- repeatmasker_input_downstream.bed --> downstream_repeats.tsv
+		- repeatmasker_input_upstream.bead --> upstream_repeats.tsv
+		- repeatmasker_input_genomic_samples.bed --> genomic_repeats.tsv
+	- for the statistical analysis and visualization, the output files should be placed into the results/ folder
 
 Brief description of the programs:
 
