@@ -112,7 +112,12 @@ colors=['FF0000',#red
        '191970',#midnight blue
        '4169E1'#royal blue
        ]
-       
+
+#define colors in a randomized way
+color_part=lambda: random.randint(0,255)
+color_ids=pd.Series(np.arange(1,100,1))
+colors=color_ids.apply(lambda number: '%02X%02X%02X' % (color_part(),color_part(),color_part())).tolist()
+
 #define function for getting the synteny blocks
 def common_nucleotides(row):
     global dual_synteny
