@@ -6,7 +6,7 @@ import pandas as pd
 numts=pd.read_csv('../results/3numt_array.csv', index_col=0)
 
 #get the cromosomes
-chr_mask=numts['g_id'].apply(lambda g_id: len(g_id) < 3 and g_id!='MT')
+chr_mask=numts['g_id'].apply(lambda g_id: len(g_id) < 3 and g_id!='MT' and g_id!='X')
 chr_numts=numts[chr_mask]
 
 #function forgetting the chromosome specific size
@@ -27,9 +27,7 @@ informations=[]
 
 #append the data for the chromosomes that do not contain any numts
 informations.append([5,1,37992211,969696,'gDNA',12,252525])#chr 5
-informations.append([6,1,27502587,969696,'gDNA',12,252525])#chr 6
 informations.append([8,1,111795807,969696,'gDNA',12,252525])#chr 8
-informations.append([10,1,47997241,969696,'gDNA',12,252525])#chr 10
 
 #create vector for the individual g ids
 pd.Series(np.unique(chr_numts['g_id'])).apply(chr_prep)
