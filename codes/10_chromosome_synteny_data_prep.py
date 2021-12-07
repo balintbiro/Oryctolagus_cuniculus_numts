@@ -119,7 +119,11 @@ colors=['FF0000',#red
        '20B2AA',#light sea green
        'FF6347',#tomato
        '191970',#midnight blue
-       '4169E1'#royal blue
+       '4169E1',#royal blue
+       'E3CF57',#banana
+       'FF4040',#brown1
+       'BF3EFF',#darkorchid
+       'FCE6C9',#eggshell
        ]
        
 #define function for getting the synteny blocks
