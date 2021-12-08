@@ -30,7 +30,7 @@ informations=[]
 informations.append([5,1,37992211,969696,'gDNA',12,252525])#chr 5
 informations.append([6,1,27502587,969696,'gDNA',12,252525])#chr 6
 informations.append([8,1,111795807,969696,'gDNA',12,252525])#chr 8
-informations.append([8,1,47997241,969696,'gDNA',12,252525])#chr 10
+informations.append([10,1,47997241,969696,'gDNA',12,252525])#chr 10
 
 #create vector for the individual g ids
 pd.Series(np.unique(chr_numts['g_id'])).apply(chr_prep)
