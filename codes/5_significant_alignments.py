@@ -3,7 +3,7 @@ import pandas as pd
  
 #e value threshold is going to be the lowest value of the r mt alignment
 e_values=[]
-with open(f'../data/{organism_name}/r_mt_alignment.fa')as infile:
+with open('../data/r_mt_alignment.fa')as infile:
     content=pd.Series(infile.readlines())
     mask=content.apply(lambda line: 'EG2' in line)
     content[mask].apply(lambda line: e_values.append(float(line.rsplit()[3].split('=')[1])))
