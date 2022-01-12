@@ -8,7 +8,7 @@ The initial folder structure is made up of three folders:
 - results
 
 The alignments were performed with LASTAL.
-The codes are mainly written in Python (3.7.10) but some of the visualizations are done in R.
+The codes are mainly written in Python (3.7.10).
 
 Used Python packages (with version number if it is available):
 - os
@@ -22,11 +22,6 @@ Used Python packages (with version number if it is available):
 - seaborn (0.11.2)
 - matplotlib (3.4.3)
 - scipy (1.6.2)
-
-Used R packages (with version number if it is available):
-- RIdeogram (0.2.2)
-- Biostrings (2.58.0)
-- TFBSTools (1.28.0)
 
 To annotate the mitochondrion, MITOS server (http://mitos.bioinf.uni-leipzig.de/index.py) was used with the following setting(s):
 - Genetic Code: 02 - Vertebrate
@@ -92,69 +87,30 @@ Brief description of the programs:
 - get the gene id (if available) of the genomic region where a significant numt is inserted
 - get the gene description (if available) of the genomic region where a significant numt is inserted
 
-10_chromosome_synteny_data_prep
-
-- create csv file as the input for synteny visualization
-- this data is corresponding to the numts which are inserted into chromosomes
-- the actual visualization is done in R
-
-11_chromosome_synteny
-
-- synteny visualization of numts that are inserted into chromosomes
-
-12_scaffold_synteny_data_prep
-
-- create csv file as the input for synteny visualization
-- this data is corresponding to the numts which are inserted into scaffolds
-- the actual visualization is done in R
-
-13_scaffold_synteny
-
-- synteny visualization of numts that are inserted into scaffolds
-
-14_gene_synteny_data_prep
-
-- create csv file as the input for synteny visualization
-- this data is corresponding to the numts which are inserted into genes
-- the actual visualization is done in R
-
-15_gene_synteny
-
-- synteny visualization of numts that are inserted into genes
-
-16_seq_logo_data_prep
-
-- creating the input file for the sequence logo
-- the actual visualization is done in R
-
-17_seq_logo
-
-- sequence logo visualization
-
-18_write_numtless_sequences
+10_write_numtless_sequences
 
 - get numt positions
 - get the sequences of the genomic parts that contains numts
 - write sequences without numts into individual FASTA files
 
-19_gc_content_numts_vs_genome
+11_gc_content_numts_vs_genome
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - calculate gc contents of the genomic samples
 - calculate gc contents of the numts
 - comapre the gc contents
-- visualize
+- write the output for visualisation
 
-20_gc_content_flankings_vs_genome
+12_gc_content_flankings_vs_genome
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - calculate gc contents of the genomic samples
 - get the flankings of the numts
 - calculate flankings gc contents
 - comapre the gc contents
-- visualize
+- write output
 
-21_repeatmasker
+13_repeatmasker
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - get the flankings of the numts
@@ -164,4 +120,10 @@ Brief description of the programs:
 	- repeatmsker_input_genomic_samples.bed
 - the RepeatMasker output files should be named properly (downstream_repeats.tsv, upstream_repeats.tsv and genomic_repeats.tsv) and placed into the results/ folder!
 - compare the frequency of repetitive elements
-- visualize
+- write output
+
+14_gene_synteny_data_prep
+
+- create csv file as the input for synteny visualization
+- this data is corresponding to the numts which are inserted into genes
+- the actual visualization is done in R
