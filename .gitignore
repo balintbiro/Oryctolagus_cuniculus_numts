@@ -1,0 +1,9 @@
+
+codes/ignore_10_chromosome_synteny_data_prep.py
+codes/ignore_11_chromosome_synteny.r
+codes/ignore_12_scaffold_synteny_data_prep.py
+codes/ignore_13_scaffold_synteny.r
+codes/ignore_14_gene_synteny_data_prep.py
+codes/ignore_15_gene_synteny.r
+codes/ignore_16_seq_logo_data_prep.py
+codes/ignore_17_seq_logo.R

@@ -111,27 +111,12 @@ else:
     nuge_significance = ttest_ind(numts_gc, nuge_gc)
 nuge_significance[1]
 
-#create a function for the statistical annotation of the graph
-def statistical_annotation(data, significance, positions, height):
-    x1, x2 = positions[0],positions[1]
-    maximum = max([max(data[0]),max(data[1])])
-    y, h, col = maximum + height + 0.03, 0.03, 'k'
-    plt.plot([x1, x1, x2, x2], [y, y+h, y+h, y], lw=1.5, c = col)
-    if significance < 0.05:
-        plt.text((x1+x2)*.5, y+h, '$\it{P}$ < 0.05', ha='center', va='bottom', color = col, fontsize = 14)
-    else:
-        plt.text((x1+x2)*.5, y+h, "n.s.", ha='center', va='bottom', color = col, fontsize = 14)
-        
-#creating the figure
-gcs = [numts_gc, nuge_gc]
-sns.set_style("darkgrid")
-fig, ax=plt.subplots(figsize=(3,2))
-sns.violinplot(data = gcs)
-ax.set_ylabel('GC content',
-             fontsize = 14)
-ax.set_xticklabels(['numts', 'genome'],
-                  fontsize = 14)
-statistical_annotation([numts_gc, nuge_gc], nuge_significance[1], [0,1], 0.1)
-ax.set_ylim(0.1, 1.05)
-plt.tight_layout()
-plt.savefig('../results/gc_contents_numt_vs_genome.png', dpi = 600)
+#writing the output for visualisation
+with open('../results/gcs_for_visualisation.txt','w')as outfile:
+    outfile.write(f'numge_gc\nsignificance: {nuge_significance}\n')
+    numts_gc=pd.Series(numts_gc)
+    numts_gc.apply(lambda value:outfile.write(str(value)+','))
+    outfile.write('\n')
+    nuge_gc=pd.Series(nuge_gc)
+    nuge_gc.apply(lambda value:outfile.write(str(value)+','))
+    outfile.write('\n')

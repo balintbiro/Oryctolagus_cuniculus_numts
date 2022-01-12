@@ -229,54 +229,9 @@ df.index = (['upstream_downstream',
 'upstream_sample',
 'downstream_sample'])
 
-#function for drawing brackets to annotate each repeat family
-def draw_brace(ax, xspan, text):
-    """Draws an annotated brace on the axes."""
-    xmin, xmax = xspan
-    xspan = xmax - xmin
-    ax_xmin, ax_xmax = ax.get_xlim()
-    xax_span = ax_xmax - ax_xmin
-    ymin, ymax = ax.get_ylim()
-    yspan = ymax - ymin
-    resolution = int(xspan/xax_span*100)*2+1 # guaranteed uneven
-    beta = 300./xax_span # the higher this is, the smaller the radius
-
-    x = np.linspace(xmin, xmax, resolution)
-    x_half = x[:resolution//2+1]
-    y_half_brace = (1/(1.+np.exp(-beta*(x_half-x_half[0])))
-                    + 1/(1.+np.exp(-beta*(x_half-x_half[-1]))))
-    y = np.concatenate((y_half_brace, y_half_brace[-2::-1]))
-    y = ymin + (.15*y - .01)*yspan # adjust vertical position
-
-    ax.autoscale(False)
-    ax.plot(x, y, color='black', lw=1)
-
-    ax.text((xmax+xmin)/2., ymin+.2*yspan, text, ha='center', va='bottom')
-    
-#visualizing
-bracket_start=0
-sns.set_style("darkgrid")
-fig, axes = plt.subplots(1, 1, figsize = (15,6))
-upstream_downstream = axes.scatter(x = df.columns.values, y = df.loc['upstream_downstream'])
-upstream_sample = axes.scatter(x = df.columns.values, y = df.loc['upstream_sample'])
-downstream_sample = axes.scatter(x = df.columns.values, y = df.loc['downstream_sample'])
-axes.plot(df.columns.values, (len(df.columns.values) * [0.05]), 'r')
-axes.legend((upstream_downstream, upstream_sample, downstream_sample),
-          ('upstream vs downstream flanking', 'upstream flanking vs genomic sample',
-           'downstream flanking vs genomic sample'),
-           fontsize = 13,
-           ncol = 3,
-           loc = 'upper center')
-axes.set_ylabel('$\it{P}$ value\n(inverted log scale)', fontsize = 20)
-axes.set_xlabel('common repetitive elements by RepeatMasker', fontsize = 20)
-plt.margins(x = 0.01)
-plt.xticks(rotation = 90)
-plt.yscale('log')
-plt.ylim([10**-3.1, 10**0.65])
-plt.gca().invert_yaxis()
-for index, repeat_family in enumerate(repeat_families):
-    bracket_end=(bracket_start+len(repeat_family))-1
-    draw_brace(axes, (bracket_start,bracket_end),repeat_families.index.values[index])
-    bracket_start+=len(repeat_family)
-plt.tight_layout()
-plt.savefig('../results/repeatmasker_statistics.png', dpi = 600)
+#writing the output for visualisation
+df.to_csv('../results/repeatmasker_results.csv')
+with open('../results/repeat_families.txt','w')as outfile:
+    outfile.write(','.join(list(repeat_families.index.values)))
+    outfile.write('\n')
+    repeat_families.apply(lambda repeat_list: outfile.write(','.join(repeat_list)+'\n'))

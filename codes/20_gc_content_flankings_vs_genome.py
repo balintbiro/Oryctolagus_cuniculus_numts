@@ -83,27 +83,12 @@ else:
     flage_significance = ttest_ind(flages_gc, flankings_gc)
 flage_significance[1]
 
-#create a function for the statistical annotation of the graph
-def statistical_annotation(data, significance, positions, height):
-    x1, x2 = positions[0],positions[1]
-    maximum = max([max(data[0]),max(data[1])])
-    y, h, col = maximum + height + 0.03, 0.03, 'k'
-    plt.plot([x1, x1, x2, x2], [y, y+h, y+h, y], lw=1.5, c = col)
-    if significance < 0.05:
-        plt.text((x1+x2)*.5, y+h, '$\it{P}$ < 0.05', ha='center', va='bottom', color = col, fontsize = 14)
-    else:
-        plt.text((x1+x2)*.5, y+h, "n.s.", ha='center', va='bottom', color = col, fontsize = 14)
-        
-#creating the figure
-gcs = [flankings_gc, flages_gc]
-sns.set_style("darkgrid")
-fig, ax=plt.subplots(figsize=(3,2))
-sns.violinplot(data = gcs)
-ax.set_ylabel('GC content',
-             fontsize = 14)
-ax.set_xticklabels(['flankings', 'genome'],
-                  fontsize = 14)
-statistical_annotation([flankings_gc, flages_gc], flage_significance[1], [0,1], 0.1)
-ax.set_ylim(0, 1.1)
-plt.tight_layout()
-plt.savefig('../results/gc_contents_flanking_vs_genome.png', dpi = 600)
+#writing the output for visualisation
+with open('../results/gcs_for_visualisation.txt','a')as outfile:
+    outfile.write(f'flage_gc\nsignificance: {str(flage_significance[1])}\n')
+    flankings_gc=pd.Series(flankings_gc)
+    flankings_gc.apply(lambda value:outfile.write(str(value)+','))
+    outfile.write('\n')
+    flages_gc=pd.Series(flages_gc)
+    flages_gc.apply(lambda value:outfile.write(str(value)+','))
+    outfile.write('\n')
