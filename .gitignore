@@ -10,3 +10,12 @@ codes/ignore_17_seq_logo.R
 codes/fig2_visualisation.ipynb
 codes/fig2_visualisation.ipynb
 codes/fig1_visualisation.ipynb
+codes/fig3.ipynb
+codes/fig2_vis.ipynb
+results/mitos_annotation.bed
+results/fig3.tiff
+results/fig2.tiff
+results/fig1.tiff
+results/3numt_array.csv
+codes/.ipynb_checkpoints/fig3_visualisation-checkpoint.ipynb
+codes/.ipynb_checkpoints/fig2_vis-checkpoint.ipynb
