@@ -1,4 +1,4 @@
-# numt
+# Oryctolagus_cuniculus_numts
  Patterns of numtogenesis in the rabbit (Oryctolagus cuniculus) genome.
 
 This repository contains all the codes for identifying nuclear insertions with mitochondrial origin in the rabbit (Oryctolagus cuniculus) genome.
@@ -122,8 +122,4 @@ Brief description of the programs:
 - compare the frequency of repetitive elements
 - write output
 
-14_gene_synteny_data_prep
-
-- create csv file as the input for synteny visualization
-- this data is corresponding to the numts which are inserted into genes
-- the actual visualization is done in R
+DISCLAIMER! Codes for generating figures are not updated recently!
