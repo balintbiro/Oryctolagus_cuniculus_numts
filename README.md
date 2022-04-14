@@ -92,13 +92,13 @@ Brief description of the programs:
 - get the gene id (if available) of the genomic region where a significant numt is inserted
 - get the gene description (if available) of the genomic region where a significant numt is inserted
 
-:ten:write_numtless_sequences
+🔟write_numtless_sequences
 
 - get numt positions
 - get the sequences of the genomic parts that contains numts
 - write sequences without numts into individual FASTA files
 
-:eleven:gc_content_numts_vs_genome
+1️⃣:one:gc_content_numts_vs_genome
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - calculate gc contents of the genomic samples
@@ -106,7 +106,7 @@ Brief description of the programs:
 - comapre the gc contents
 - write the output for visualisation
 
-:twelve:gc_content_flankings_vs_genome
+1️⃣:two:gc_content_flankings_vs_genome
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - calculate gc contents of the genomic samples
@@ -115,7 +115,7 @@ Brief description of the programs:
 - comapre the gc contents
 - write output
 
-:thirteen:repeatmasker
+:one::three:repeatmasker
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - get the flankings of the numts
