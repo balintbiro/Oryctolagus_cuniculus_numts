@@ -2,26 +2,30 @@
  Patterns of numtogenesis in the rabbit (Oryctolagus cuniculus) genome.
 
 This repository contains all the codes for identifying nuclear insertions with mitochondrial origin in the rabbit (Oryctolagus cuniculus) genome.
-The initial folder structure is made up of three folders:
-- codes
-- data
-- results
+
+Setting up the environment:
+---
+```bash
+mkdir codes data results
+conda install -c bioconda last
+```
 
 The alignments were performed with LASTAL.
 The codes are mainly written in Python (3.7.10).
 
-Used Python packages (with version number if it is available):
+Used Python packages and external programs (if the module is not built in, the version number and conda installation are provided):
+---
 - os
 - gzip
 - shutil
-- pandas (1.2.4)
+- pandas (1.2.4) `conda install pandas`
 - urllib.request
 - subprocess
-- requests (2.26.0)
-- numpy (1.20.2)
-- seaborn (0.11.2)
-- matplotlib (3.4.3)
-- scipy (1.6.2)
+- requests (2.26.0) `conda install -c anaconda requests`
+- numpy (1.20.2) `conda install numpy`
+- seaborn (0.11.2) `conda install seaborn`
+- matplotlib (3.4.3) `conda install -c conda-forge matplotlib`
+- scipy (1.6.2) `conda install -c anaconda scipy`
 
 To annotate the mitochondrion, MITOS server (http://mitos.bioinf.uni-leipzig.de/index.py) was used with the following setting(s):
 - Genetic Code: 02 - Vertebrate
@@ -41,59 +45,60 @@ RepeatMasker was also run on server (http://genome.ucsc.edu/cgi-bin/hgTables?hgs
 	- for the statistical analysis and visualization, the output files should be placed into the results/ folder
 
 Brief description of the programs:
+---
 
-1_data_acquisition
+:one:data_acquisition
 
 - download genomic dna and mitochondrial dna in .gz format
 - decompress the .gz files
 
-2_reverse_mt
+:two:reverse_mt
 
 - actual reversal of the mitochondrial dna
 
-3_duplicate_mt_dna
+:three:duplicate_mt_dna
 
 - prepare the duplicated mt dna for the later alignment
 
-4_alignments
+:four:alignments
 
 - prepare the database with LASTAL from the rabbit genome
 - align reverse mt dna with nuclear genome
 - align double mt dna with nuclear genome
 
-5_significant_alignments
+:five:significant_alignments
 
 - get the lowest e value from the reverse mt dna alignment
 - use this threshold for masking the double mt dna alignment
 
-6_writing_fasta_files
+:six:writing_fasta_files
 
 - process nuclear dna file into a format where the sequence is in one line
 - get the ids of the genome parts (chromosome, scaffold) that have significant numts
 - write individual FASTA files for the genome parts that have significant numts
 
-7_get_lastal_csv
+:seven:get_lastal_csv
 
 - create a dataframe from the signifcant alignments (score, eg2_value, e_value, g_id, g_start, mt_start, g_length, mt_length, g_strand, mt_strand, g_size, g_sequence, mt_sequence)
 - mask the artifacts that are the results of using double mt dna for the alignment
 - write dataframe into a csv
 
-8_add_flankings
+:eight:add_flankings
 
 - add genomic and mitochondrial flanking regions to the previously defined csv file
 
-9_get_ensemble_data
+:nine:get_ensemble_data
 
 - get the gene id (if available) of the genomic region where a significant numt is inserted
 - get the gene description (if available) of the genomic region where a significant numt is inserted
 
-10_write_numtless_sequences
+:ten:write_numtless_sequences
 
 - get numt positions
 - get the sequences of the genomic parts that contains numts
 - write sequences without numts into individual FASTA files
 
-11_gc_content_numts_vs_genome
+:eleven:gc_content_numts_vs_genome
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - calculate gc contents of the genomic samples
@@ -101,7 +106,7 @@ Brief description of the programs:
 - comapre the gc contents
 - write the output for visualisation
 
-12_gc_content_flankings_vs_genome
+:twelve:gc_content_flankings_vs_genome
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - calculate gc contents of the genomic samples
@@ -110,7 +115,7 @@ Brief description of the programs:
 - comapre the gc contents
 - write output
 
-13_repeatmasker
+:thirteen:repeatmasker
 
 - sample each genomic parts based on the number and length of the corresponding numts (genomic samples)
 - get the flankings of the numts
@@ -122,4 +127,4 @@ Brief description of the programs:
 - compare the frequency of repetitive elements
 - write output
 
-DISCLAIMER! Codes for generating figures are not updated recently!
+:warning:DISCLAIMER! Codes for generating figures are not updated recently!
