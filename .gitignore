@@ -18,3 +18,10 @@ results/fig1.tiff
 results/3numt_array.csv
 codes/.ipynb_checkpoints/fig3_visualisation-checkpoint.ipynb
 codes/.ipynb_checkpoints/fig2_vis-checkpoint.ipynb
+data/alignment_scores.csv
+data/e_values.txt
+data/edna.mat
+data/filtered_alignments.csv
+data/identities.txt
+data/sample_alignment.afa
+results/fpr_check.png
