@@ -25,3 +25,5 @@ data/filtered_alignments.csv
 data/identities.txt
 data/sample_alignment.afa
 results/fpr_check.png
+results/deep_analysis.png
+results/deep_analysis.tiff

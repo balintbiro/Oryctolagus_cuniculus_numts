@@ -14,19 +14,21 @@ def pairwise_alignments(row):
 		chr_id=row['chr_id']
 		chr_start=row['chr_start']
 		chr_end=row['chr_start']+row['chr_no_letters']
+		chr_part_size=row['chr_no_letters']
 
 		scf_id=row['scf_id']
 		scf_start=row['scf_start']
 		scf_end=row['scf_start']+row['scf_no_letters']
+		scf_part_size=row['scf_no_letters']
 
 		numtChr=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {str(int(chr_id))}:{str(int(chr_start))}-{str(int(chr_end))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
 		numtScf=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {scf_id}:{str(int(scf_start))}-{str(int(scf_end))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
 
-		upstreamChr=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {str(int(chr_id))}:{str(int(chr_start-5000))}-{str(int(chr_start))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
-		upstreamScf=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {scf_id}:{str(int(scf_start-5000))}-{str(int(scf_start))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
+		upstreamChr=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {str(int(chr_id))}:{str(int(chr_start-chr_part_size))}-{str(int(chr_start))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
+		upstreamScf=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {scf_id}:{str(int(scf_start-scf_part_size))}-{str(int(scf_start))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
 
-		downstreamChr=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {str(int(chr_id))}:{str(int(chr_end))}-{str(int(chr_end+5000))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
-		downstreamScf=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {scf_id}:{str(int(scf_end))}-{str(int(scf_end+5000))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
+		downstreamChr=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {str(int(chr_id))}:{str(int(chr_end))}-{str(int(chr_end+chr_part_size))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
+		downstreamScf=''.join(str(run(f'samtools faidx ../data/Oryctolagus_cuniculus.OryCun2.0.dna.toplevel.fa {scf_id}:{str(int(scf_end))}-{str(int(scf_end+scf_part_size))}',shell=True,capture_output=True).stdout).split('\\n')[1:-1])
 
 		upstream_score=pairwise2.align.globalms(upstreamChr,upstreamScf,1,-1,-7,-1,one_alignment_only=True)[0].score
 		numt_score=pairwise2.align.globalms(numtChr,numtScf,1,-1,-7,-1,one_alignment_only=True)[0].score
