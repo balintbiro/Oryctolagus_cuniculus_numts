@@ -27,3 +27,5 @@ data/sample_alignment.afa
 results/fpr_check.png
 results/deep_analysis.png
 results/deep_analysis.tiff
+data/RMResults.csv
+data/rm_input.fa.out

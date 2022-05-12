@@ -1,0 +1,13 @@
+---
+title: "RMTransformation"
+output: html_document
+---
+
+```{r}
+install.packages("biomartr")
+library(biomartr)
+RMResults <- read_rm('../../data/rm_input.fa.out')
+RMResults <- as.data.frame(RMResults)
+write.csv(RMResults,'../../data/RMResults.csv')
+```
+
