@@ -1,5 +1,17 @@
 # Oryctolagus_cuniculus_numts
  Patterns of numtogenesis in the rabbit (Oryctolagus cuniculus) genome.
+ 
+Uppon usage, please cite:
+---
+@article{biro2022nuclear,
+  title={Nuclear mitochondrial DNA sequences in the rabbit genome},
+  author={Bir{\'o}, B{\'a}lint and G{\'a}l, Zolt{\'a}n and Schiavo, Giuseppina and Ribari, Anisa and Utzeri, Valerio Joe and Brookman, Michael and Fontanesi, Luca and Hoffmann, Orsolya Ivett},
+  journal={Mitochondrion},
+  volume={66},
+  pages={1--6},
+  year={2022},
+  publisher={Elsevier}
+}
 
 This repository contains all the codes for identifying nuclear insertions with mitochondrial origin in the rabbit (Oryctolagus cuniculus) genome.
 
