@@ -3,6 +3,7 @@
  
 Uppon usage, please cite:
 ---
+``` bib
 @article{biro2022nuclear,
   title={Nuclear mitochondrial DNA sequences in the rabbit genome},
   author={Bir{\'o}, B{\'a}lint and G{\'a}l, Zolt{\'a}n and Schiavo, Giuseppina and Ribari, Anisa and Utzeri, Valerio Joe and Brookman, Michael and Fontanesi, Luca and Hoffmann, Orsolya Ivett},
@@ -12,6 +13,7 @@ Uppon usage, please cite:
   year={2022},
   publisher={Elsevier}
 }
+```
 
 This repository contains all the codes for identifying nuclear insertions with mitochondrial origin in the rabbit (Oryctolagus cuniculus) genome.
 
