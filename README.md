@@ -1,7 +1,7 @@
 # Oryctolagus_cuniculus_numts
  Patterns of numtogenesis in the rabbit (Oryctolagus cuniculus) genome.
  
-Uppon usage, please cite:
+Upon usage, please cite:
 ---
 ``` bib
 @article{biro2022nuclear,
